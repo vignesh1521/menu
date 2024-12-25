@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Responsive Regisration data </title>
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <header>Resume Creation</header>
+        <data action="#"  class="data1">
+            <div class="data first">
+                <div class="details personal">
+                    <span class="title">Personal Details</span>
+
+                    <div class="fields">
+                        <div class="input-field ">
+                            <label>First Name</label>
+                            <input type="text" placeholder="Enter your first name" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Last Name</label>
+                            <input type="text" placeholder="Enter your last name" required>
+                        </div>
+                        <div class="input-field">
+                            <label>Email</label>
+                            <input type="email" placeholder="Enter your email"required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Mobile Number</label>
+                            <input type="number" placeholder="Enter mobile number"   required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Date of birth</label>
+                            <input type="text" placeholder="Enter your Date of birth" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Gender</label>
+                            <select required>
+                                <option value="" disabled selected>Select gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Others">Others</option>
+                            </select>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="details ID">
+                    <label>Select your skills:</label>
+                    <div class="con">
+
+                        <div class="checkBox">
+                            <div style="display: grid; grid-template-columns: repeat(2, auto); gap: 10px;">
+                                <label><input type="checkbox" name="skills" value="JavaScript"> JavaScript</label>
+                                <label><input type="checkbox" name="skills" value="Python"> Python</label>
+                                <label><input type="checkbox" name="skills" value="Java"> Java</label>
+                                <label><input type="checkbox" name="skills" value="C++"> C++</label>
+                                <label><input type="checkbox" name="skills" value="PHP"> PHP</label>
+                                <label><input type="checkbox" name="skills" value="Ruby"> Ruby</label>
+                                <label><input type="checkbox" name="skills" value="C#"> C#</label>
+                                <label><input type="checkbox" name="skills" value="Go"> Go</label>
+                                <label><input type="checkbox" name="skills" value="Kotlin"> Kotlin</label>
+                                <label><input type="checkbox" name="skills" value="Swift"> Swift</label>
+                                <label><input type="checkbox" name="skills" value="HTML"> HTML</label>
+                                <label><input type="checkbox" name="skills" value="CSS"> CSS</label>
+                                <label><input type="checkbox" name="skills" value="React"> React</label>
+                                <label><input type="checkbox" name="skills" value="Angular"> Angular</label>
+                                <label><input type="checkbox" name="skills" value="Vue"> Vue</label>
+                                <label><input type="checkbox" name="skills" value="Node.js"> Node.js</label>
+                                <label><input type="checkbox" name="skills" value="Flutter"> Flutter</label>
+                                <label><input type="checkbox" name="skills" value="Django"> Django</label>
+                                <label><input type="checkbox" name="skills" value="Flask"> Flask</label>
+                                <label><input type="checkbox" name="skills" value="Spring Boot"> Spring Boot</label>
+                                <label><input type="checkbox" name="skills" value=".NET"> .NET</label>
+                                <label><input type="checkbox" name="skills" value="SQL"> SQL</label>
+                                <label><input type="checkbox" name="skills" value="NoSQL"> NoSQL</label>
+                                <label><input type="checkbox" name="skills" value="Docker"> Docker</label>
+                                <label><input type="checkbox" name="skills" value="Kubernetes"> Kubernetes</label>
+                                <label><input type="checkbox" name="skills" value="Git"> Git</label>
+                                <label><input type="checkbox" name="skills" value="AWS"> AWS</label>
+                                <label><input type="checkbox" name="skills" value="Azure"> Azure</label>
+                                <label><input type="checkbox" name="skills" value="Google Cloud"> Google Cloud</label>
+                                <label><input type="checkbox" name="skills" value="Blockchain"> Blockchain</label>
+                                <label><input type="checkbox" name="skills" value="Artificial Intelligence"> AI</label>
+                                <label><input type="checkbox" name="skills" value="Machine Learning"> ML</label>
+                                <label><input type="checkbox" name="skills" value="DevOps"> DevOps</label>
+                                <label><input type="checkbox" name="skills" value="Cybersecurity"> Cybersecurity</label>
+                            </div>
+                        </div>
+                        <div class="checkBox fields fields-2" >
+                                    <div class="input-field">
+                                        <label>Experinece</label>
+                                        <select required>
+                                            <option value="" disabled selected>Select your previous work experience</option>
+                                            <option value="1-year">1 Year</option>
+                                            <option value="2-years">2 Years</option>
+                                            <option value="3-years">3 Years</option>
+                                            <option value="4-years">4 Years</option>
+                                            <option value="more-than-4-years">More Than 4 Years</option>
+                                        </select>
+                                        
+                                    </div>
+
+                                    <div class="input-field">
+                                        <label>Address Type</label>
+                                        <input type="text" placeholder="Permanent or Temporary" required>
+                                    </div>
+                                    <div class="input-field">
+                                        <label for="degree">Select your degree:</label>
+                                        <select id="degree" name="degree" onchange="updateSubBranches()" required>
+                                            <option value="" disabled selected>Select a degree</option>
+                                            <option value="bsc">Bachelor of Science (BSc)</option>
+                                            <option value="ba">Bachelor of Arts (BA)</option>
+                                            <option value="bcom">Bachelor of Commerce (B.Com)</option>
+                                            <option value="btech">Bachelor of Technology (B.Tech)</option>
+                                        </select>
+                                    </div>
+                                    <div class="input-field">
+                                        <label for="degree">Select your degree:</label>
+                                        <select id="sub-branch" name="sub-branch" required>
+                                            <option value="" selected>Select a sub-branch</option>
+                                        </select>
+                                    </div>
+                        </div>
+                    </div>
+                    <button class="nextBtn">
+                        <span class="btnText">Next</span>
+                        <i class="uil uil-navigator"></i>
+                    </button>
+                </div>
+            </div>
+        </data>
+        <data class="data2">
+
+            <div class="data second">
+                <div class="details address">
+                    <span class="title">Address Details</span>
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Address Type</label>
+                            <input type="text" placeholder="Permanent or Temporary" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Nationality</label>
+                            <input type="text" placeholder="Enter nationality" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>State</label>
+                            <input type="text" placeholder="Enter your state" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>District</label>
+                            <input type="text" placeholder="Enter your district" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Block Number</label>
+                            <input type="number" placeholder="Enter block number" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Ward Number</label>
+                            <input type="number" placeholder="Enter ward number" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="details family">
+                    <span class="title">Family Details</span>
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Father Name</label>
+                            <input type="text" placeholder="Enter father name" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Mother Name</label>
+                            <input type="text" placeholder="Enter mother name" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Grandfather</label>
+                            <input type="text" placeholder="Enter grandfther name" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Spouse Name</label>
+                            <input type="text" placeholder="Enter spouse name" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Father in Law</label>
+                            <input type="text" placeholder="Father in law name" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Mother in Law</label>
+                            <input type="text" placeholder="Mother in law name" required>
+                        </div>
+                    </div>
+
+                    <div class="buttons">
+                        <div class="backBtn">
+                            <i class="uil uil-navigator"></i>
+                            <span class="btnText">Back</span>
+                        </div>
+
+                        <button type="submit" class="sumbit">
+                            <span class="btnText">Submit</span>
+                            <i class="uil uil-navigator"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </data>
+    </div>
+
+    <script>
+const data = document.querySelectorAll("data"),
+    nextBtn = data[0].querySelector(".nextBtn"),
+   backBtn = data[1].querySelector(".backBtn"),
+   allInputs = data[0].querySelectorAll(".first input, .first select"); // Target all inputs and selects in `.first`
+
+nextBtn.addEventListener("click", (event) => {
+    let open = true; 
+    allInputs.forEach(input => {
+        if(open==false){
+            input.classList.remove('err')
+            return;
+        }
+        else if(input.value.trim() === "") {
+            input.classList.add('err')
+            open = false; 
+            return;
+        }
+    });
+    if (open) {
+        data[0].style.opacity=0
+        data[0].style.pointerEvents='auto'
+        data[0].style.transform='translateX(-100%)'
+        data[0].style.display='none'
+        data[1].style.opacity=1
+        data[1].style.display='block'
+        data[1].style.pointerEvents='auto'
+        data[1].style.transform='translateX(0)'
+    } else {
+        data[0].classList.remove('secActive');
+    }
+});
+const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+allInputs.forEach(input => {
+    input.addEventListener('input', () => {
+        // For inputs that are not empty, perform individual validations
+        if (input.value.trim() !== "" || (input.tagName === "SELECT" && input.value !== "")) {
+            // For number input, ensure the length is exactly 10
+            if (input.getAttribute('type') === 'number') {
+                if (input.value.length !== 10) {
+                    input.classList.add('err');
+                } else {
+                    input.classList.remove('err');
+                }
+            }
+            // For email input, validate the email format
+            else if (input.getAttribute('type') === 'email') {
+                if (emailRegex.test(input.value)) {
+                    input.classList.remove('err');
+                } else {
+                    input.classList.add('err');
+                }
+            }
+            // For select input, ensure a valid value has been selected
+            else if (input.tagName === 'SELECT') {
+                if (input.value === "") {
+                    input.classList.add('err');
+                } else {
+                    input.classList.remove('err');
+                }
+            } 
+            // For other types of inputs (text, password, etc.), just remove error if not empty
+            else {
+                input.classList.remove('err');
+            }
+        } else {
+            // If input is empty or unselected, add the error class
+            input.classList.add('err');
+        }
+    });
+});
+backBtn.addEventListener("click", () => {
+    data[1].style.opacity=0
+        data[1].style.pointerEvents='auto'
+        data[1].style.transform='translateX(-100%)'
+        data[1].style.display='none'
+        data[0].style.opacity=1
+        data[0].style.display='block'
+        data[0].style.pointerEvents='auto'
+        data[0].style.transform='translateX(0)'
+
+});
+
+    </script>
+</body>
+
+</html>
