@@ -71,15 +71,17 @@ body {
     overflow: hidden;
     display: none;
 }
+
 .container .data1 {
     background-color: #fff;
     transition: 0.3s ease;
+    display: none;
 }
 
 .container .data2 {
     opacity: 0;
     pointer-events: none;
-    transform: translateX(100%);
+    transform: translateX(-100%);
 }
 
 
@@ -107,13 +109,15 @@ data .fields .input-field {
     flex-direction: column;
     margin: 4px 0;
 }
-data .fields .err{
-    border: 2px solid rgb(255, 112, 112);
-    background-color: rgb(255, 231, 231);
-} 
-data .fields-2 .input-field{
+
+data .fields-2 .input-field {
     width: calc(100% / 2);
 }
+
+data .fields-3 .input-field {
+    width: 70%;
+}
+
 label {
     font-size: 12px;
     font-weight: 500;
@@ -133,6 +137,7 @@ select {
     margin: 8px 0;
     background-color: #fff;
 }
+
 .input-field input :focus,
 .input-field select:focus {
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.13);
@@ -192,30 +197,121 @@ data .buttons button,
 .backBtn {
     margin-right: 14px;
 }
-.checkBox{
+
+.checkBox {
     border: 1px solid #aaa;
     border-radius: 5px;
-    width: 333px;  
+    width: 450px;
     height: 200px;
     overflow: scroll;
     padding: 5px;
     margin-top: 8px;
 }
-.checkBox div{
+
+.checkBox div {
     padding: 5px;
     margin: auto;
 }
-.con{
-    display: flex;
-gap: 10px;
-flex-wrap: wrap;
+.fields-3{
+    margin-top: -29px !important; 
+    align-items: normal !important;
+    height: auto !important;
 }
-.fields-2{
+
+
+.con {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 3px;
+}
+
+.fields-3,
+.fields-2 {
     flex-wrap: wrap;
     flex-grow: 10;
-    border: 0px; 
+    border: 0px;
     overflow: hidden;
 }
+
+.err {
+    border: 2px solid rgb(255, 112, 112) !important;
+    background-color: rgb(255, 231, 231) !important;
+}
+
+.active {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transform: translateX(0%) !important;
+    display: block !important;
+}
+
+@media (max-width: 1100px) {
+
+    data .fields-3 .input-field {
+        width: 80%;
+    }
+}
+
+@media (max-width: 1020px) {
+    .c2 {
+        width: 400px;
+    }
+}
+@media (max-width: 960px) {
+    .c2 {
+        width: 380px;
+    }
+}
+@media (max-width: 940px) {
+    .c2 {
+        width: 360px;
+    }
+}
+@media (max-width: 920px) {
+    .c2 {
+        width: 80%;
+    }
+    .fields-3{
+        margin-left: -13px;
+        margin-top:-10px !important;
+    }
+    data .fields-3 .input-field {
+        width: 60%;
+    }
+}
+
+
+@media (max-width: 770px) {
+    .c2 {
+        width: 100%;
+    }
+
+    .checkBox {
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    .container .data1 {
+        overflow: scroll;
+    }
+
+    .container .data2 {
+        overflow: scroll;
+    }
+
+    .container .data1::-webkit-scrollbar {
+        display: none;
+    }
+
+    .container .data1 {
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
+        /* Firefox */
+    }
+}
+
 @media (max-width: 750px) {
     .container data {
         overflow-y: scroll;
@@ -230,35 +326,18 @@ flex-wrap: wrap;
     }
 }
 
-@media (max-width: 770px) {
-    .checkBox{
-        
-        margin-top: 10px;
-        width:100%;
-    }
-    .container .data1{
-        overflow:scroll;
-    }
-    .container .data2{
-        overflow:scroll;
-    }
-    .container .data1::-webkit-scrollbar {
-        display: none;
-      }
-    .container .data1 {
-        -ms-overflow-style: none;  /* IE and Edge */
-        scrollbar-width: none;  /* Firefox */
-      }
-}
+
 @media (max-width: 600px) {
 
     data .fields .input-field {
         width: 105%;
     }
-    .fields-2{
+
+    .fields-2 {
         height: 350px;
     }
-    .checkBox.fields.fields-2 .input-field{
+
+    .checkBox.fields.fields-2 .input-field {
         margin: -10px;
     }
 }

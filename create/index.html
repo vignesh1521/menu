@@ -11,10 +11,9 @@
 </head>
 
 <body>
-
     <div class="container">
         <header>Resume Creation</header>
-        <data action="#"  class="data1">
+        <data action="#" class="data1 active">
             <div class="data first">
                 <div class="details personal">
                     <span class="title">Personal Details</span>
@@ -31,12 +30,12 @@
                         </div>
                         <div class="input-field">
                             <label>Email</label>
-                            <input type="email" placeholder="Enter your email"required>
+                            <input type="email" placeholder="Enter your email" required>
                         </div>
 
                         <div class="input-field">
                             <label>Mobile Number</label>
-                            <input type="number" placeholder="Enter mobile number"   required>
+                            <input type="number" placeholder="Enter mobile number" required>
                         </div>
 
                         <div class="input-field">
@@ -99,40 +98,54 @@
                                 <label><input type="checkbox" name="skills" value="Cybersecurity"> Cybersecurity</label>
                             </div>
                         </div>
-                        <div class="checkBox fields fields-2" >
-                                    <div class="input-field">
-                                        <label>Experinece</label>
-                                        <select required>
-                                            <option value="" disabled selected>Select your previous work experience</option>
-                                            <option value="1-year">1 Year</option>
-                                            <option value="2-years">2 Years</option>
-                                            <option value="3-years">3 Years</option>
-                                            <option value="4-years">4 Years</option>
-                                            <option value="more-than-4-years">More Than 4 Years</option>
-                                        </select>
-                                        
-                                    </div>
+                        <div class="checkBox fields fields-2">
+                            <div class="input-field">
+                                <label>Experinece</label>
+                                <select required>
+                                    <option value="" disabled selected>Select your previous work experience</option>
+                                    <option value="Fresher">Fresher</option>
+                                    <option value="1-year">1 Year</option>
+                                    <option value="2-years">2 Years</option>
+                                    <option value="3-years">3 Years</option>
+                                    <option value="4-years">4 Years</option>
+                                    <option value="more-than-4-years">More Than 4 Years</option>
+                                </select>
 
-                                    <div class="input-field">
-                                        <label>Address Type</label>
-                                        <input type="text" placeholder="Permanent or Temporary" required>
-                                    </div>
-                                    <div class="input-field">
-                                        <label for="degree">Select your degree:</label>
-                                        <select id="degree" name="degree" onchange="updateSubBranches()" required>
-                                            <option value="" disabled selected>Select a degree</option>
-                                            <option value="bsc">Bachelor of Science (BSc)</option>
-                                            <option value="ba">Bachelor of Arts (BA)</option>
-                                            <option value="bcom">Bachelor of Commerce (B.Com)</option>
-                                            <option value="btech">Bachelor of Technology (B.Tech)</option>
-                                        </select>
-                                    </div>
-                                    <div class="input-field">
-                                        <label for="degree">Select your degree:</label>
-                                        <select id="sub-branch" name="sub-branch" required>
-                                            <option value="" selected>Select a sub-branch</option>
-                                        </select>
-                                    </div>
+                            </div>
+
+                            <div class="input-field">
+                                <label for="work-role">Previous Work Role</label>
+                                <select id="work-role" name="work-role" required>
+                                    <option value="" disabled selected>Select previous work role</option>
+                                    <option value="fresher">Fresher</option>
+                                    <option value="junior-developer">Junior Developer</option>
+                                    <option value="senior-developer">Senior Developer</option>
+                                    <option value="team-lead">Team Lead</option>
+                                    <option value="project-manager">Project Manager</option>
+                                    <option value="qa-analyst">QA Analyst</option>
+                                    <option value="data-analyst">Data Analyst</option>
+                                    <option value="ui-ux-designer">UI/UX Designer</option>
+                                    <option value="devops-engineer">DevOps Engineer</option>
+                                    <option value="cybersecurity-specialist">Cybersecurity Specialist</option>
+                                </select>
+                            </div>
+
+                            <div class="input-field">
+                                <label for="degree">Select your degree:</label>
+                                <select id="degree" name="degree" onchange="updateSubBranches()" required>
+                                    <option value="" disabled selected>Select a degree</option>
+                                    <option value="bsc">Bachelor of Science (BSc)</option>
+                                    <option value="ba">Bachelor of Arts (BA)</option>
+                                    <option value="bcom">Bachelor of Commerce (B.Com)</option>
+                                    <option value="btech">Bachelor of Technology (B.Tech)</option>
+                                </select>
+                            </div>
+                            <div class="input-field">
+                                <label for="degree">Select your degree:</label>
+                                <select id="sub-branch" name="sub-branch" required>
+                                    <option value="" selected>Select a sub-branch</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <button class="nextBtn">
@@ -143,180 +156,103 @@
             </div>
         </data>
         <data class="data2">
-
             <div class="data second">
                 <div class="details address">
                     <span class="title">Address Details</span>
-
                     <div class="fields">
                         <div class="input-field">
-                            <label>Address Type</label>
-                            <input type="text" placeholder="Permanent or Temporary" required>
+                            <label>Address Line1</label>
+                            <input type="text" placeholder="Street name, Door No" required>
+                        </div>
+                        <div class="input-field">
+                            <label>Address Line2</label>
+                            <input type="text" placeholder="Appartment, floor, unit..etc" required>
                         </div>
 
                         <div class="input-field">
-                            <label>Nationality</label>
-                            <input type="text" placeholder="Enter nationality" required>
+                            <label for="state">State/UT:</label>
+                            <select id="state" onchange="updateDistricts()">
+                                <option value="" disabled selected>Select a state/UT</option>
+                                <option value="andhra_pradesh">Andhra Pradesh</option>
+                                <option value="arunachal_pradesh">Arunachal Pradesh</option>
+                                <option value="assam">Assam</option>
+                                <option value="bihar">Bihar</option>
+                                <option value="chhattisgarh">Chhattisgarh</option>
+                                <option value="goa">Goa</option>
+                                <option value="gujarat">Gujarat</option>
+                                <option value="haryana">Haryana</option>
+                                <option value="himachal_pradesh">Himachal Pradesh</option>
+                                <option value="jharkhand">Jharkhand</option>
+                                <option value="karnataka">Karnataka</option>
+                                <option value="kerala">Kerala</option>
+                                <option value="madhya_pradesh">Madhya Pradesh</option>
+                                <option value="maharashtra">Maharashtra</option>
+                                <option value="manipur">Manipur</option>
+                                <option value="meghalaya">Meghalaya</option>
+                                <option value="mizoram">Mizoram</option>
+                                <option value="nagaland">Nagaland</option>
+                                <option value="odisha">Odisha</option>
+                                <option value="punjab">Punjab</option>
+                                <option value="rajasthan">Rajasthan</option>
+                                <option value="sikkim">Sikkim</option>
+                                <option value="tamil_nadu">Tamil Nadu</option>
+                                <option value="telangana">Telangana</option>
+                                <option value="tripura">Tripura</option>
+                                <option value="uttar_pradesh">Uttar Pradesh</option>
+                                <option value="uttarakhand">Uttarakhand</option>
+                                <option value="west_bengal">West Bengal</option>
+                                <option value="andaman_nicobar">Andaman and Nicobar Islands</option>
+                                <option value="chandigarh">Chandigarh</option>
+                                <option value="dadra_nagar_haveli">Dadra and Nagar Haveli and Daman and Diu</option>
+                                <option value="delhi">Delhi</option>
+                                <option value="jammu_kashmir">Jammu & Kashmir</option>
+                                <option value="ladakh">Ladakh</option>
+                                <option value="lakshadweep">Lakshadweep</option>
+                                <option value="puducherry">Puducherry</option>
+                            </select>
                         </div>
 
                         <div class="input-field">
-                            <label>State</label>
-                            <input type="text" placeholder="Enter your state" required>
-                        </div>
-
-                        <div class="input-field">
-                            <label>District</label>
-                            <input type="text" placeholder="Enter your district" required>
-                        </div>
-
-                        <div class="input-field">
-                            <label>Block Number</label>
-                            <input type="number" placeholder="Enter block number" required>
-                        </div>
-
-                        <div class="input-field">
-                            <label>Ward Number</label>
-                            <input type="number" placeholder="Enter ward number" required>
+                            <label for="district">District:</label>
+                            <select id="district">
+                                <option value="" disabled selected>Select a district</option>
+                            </select>
                         </div>
                     </div>
                 </div>
 
                 <div class="details family">
-                    <span class="title">Family Details</span>
+                    <span class="title">Profile Details</span>
+                    <label for=""> About your-slef</label>
+                    <div class="con">
+                        <textarea class="checkBox c2" name="" id=""></textarea>
+                        <div class="checkBox fields fields-3">
 
-                    <div class="fields">
-                        <div class="input-field">
-                            <label>Father Name</label>
-                            <input type="text" placeholder="Enter father name" required>
-                        </div>
-
-                        <div class="input-field">
-                            <label>Mother Name</label>
-                            <input type="text" placeholder="Enter mother name" required>
-                        </div>
-
-                        <div class="input-field">
-                            <label>Grandfather</label>
-                            <input type="text" placeholder="Enter grandfther name" required>
-                        </div>
-
-                        <div class="input-field">
-                            <label>Spouse Name</label>
-                            <input type="text" placeholder="Enter spouse name" required>
-                        </div>
-
-                        <div class="input-field">
-                            <label>Father in Law</label>
-                            <input type="text" placeholder="Father in law name" required>
-                        </div>
-
-                        <div class="input-field">
-                            <label>Mother in Law</label>
-                            <input type="text" placeholder="Mother in law name" required>
+                            <div class="input-field" for="file-upload">
+                                <label style="position: relative; top: -3px;">profile Photo</label>
+                                <input type="file" id="file-upload" required style="align-content: center;"
+                                    accept="image/png ,image/jpeg">
+                            </div>
                         </div>
                     </div>
 
-                    <div class="buttons">
-                        <div class="backBtn">
-                            <i class="uil uil-navigator"></i>
-                            <span class="btnText">Back</span>
-                        </div>
+                </div>
 
-                        <button type="submit" class="sumbit">
-                            <span class="btnText">Submit</span>
-                            <i class="uil uil-navigator"></i>
-                        </button>
+                <div class="buttons">
+                    <div class="backBtn">
+                        <i class="uil uil-navigator"></i>
+                        <span class="btnText">Back</span>
                     </div>
+
+                    <button type="submit" class="submit">
+                        <span class="btnText">Submit</span>
+                        <i class="uil uil-navigator"></i>
+                    </button>
                 </div>
             </div>
-        </data>
     </div>
-
-    <script>
-const data = document.querySelectorAll("data"),
-    nextBtn = data[0].querySelector(".nextBtn"),
-   backBtn = data[1].querySelector(".backBtn"),
-   allInputs = data[0].querySelectorAll(".first input, .first select"); // Target all inputs and selects in `.first`
-
-nextBtn.addEventListener("click", (event) => {
-    let open = true; 
-    allInputs.forEach(input => {
-        if(open==false){
-            input.classList.remove('err')
-            return;
-        }
-        else if(input.value.trim() === "") {
-            input.classList.add('err')
-            open = false; 
-            return;
-        }
-    });
-    if (open) {
-        data[0].style.opacity=0
-        data[0].style.pointerEvents='auto'
-        data[0].style.transform='translateX(-100%)'
-        data[0].style.display='none'
-        data[1].style.opacity=1
-        data[1].style.display='block'
-        data[1].style.pointerEvents='auto'
-        data[1].style.transform='translateX(0)'
-    } else {
-        data[0].classList.remove('secActive');
-    }
-});
-const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-
-allInputs.forEach(input => {
-    input.addEventListener('input', () => {
-        // For inputs that are not empty, perform individual validations
-        if (input.value.trim() !== "" || (input.tagName === "SELECT" && input.value !== "")) {
-            // For number input, ensure the length is exactly 10
-            if (input.getAttribute('type') === 'number') {
-                if (input.value.length !== 10) {
-                    input.classList.add('err');
-                } else {
-                    input.classList.remove('err');
-                }
-            }
-            // For email input, validate the email format
-            else if (input.getAttribute('type') === 'email') {
-                if (emailRegex.test(input.value)) {
-                    input.classList.remove('err');
-                } else {
-                    input.classList.add('err');
-                }
-            }
-            // For select input, ensure a valid value has been selected
-            else if (input.tagName === 'SELECT') {
-                if (input.value === "") {
-                    input.classList.add('err');
-                } else {
-                    input.classList.remove('err');
-                }
-            } 
-            // For other types of inputs (text, password, etc.), just remove error if not empty
-            else {
-                input.classList.remove('err');
-            }
-        } else {
-            // If input is empty or unselected, add the error class
-            input.classList.add('err');
-        }
-    });
-});
-backBtn.addEventListener("click", () => {
-    data[1].style.opacity=0
-        data[1].style.pointerEvents='auto'
-        data[1].style.transform='translateX(-100%)'
-        data[1].style.display='none'
-        data[0].style.opacity=1
-        data[0].style.display='block'
-        data[0].style.pointerEvents='auto'
-        data[0].style.transform='translateX(0)'
-
-});
-
-    </script>
+    </data>
+    </div>
 </body>
 
 </html>
