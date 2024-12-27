@@ -22,7 +22,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-          background:linear-gradient(to right,  #8b4ce9, #c524da);
+    background:linear-gradient(to right,  #8b4ce9, #c524da);
 }
 
 .container {
@@ -35,6 +35,11 @@ body {
     background-color: #fff;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
+.home{
+    font-weight: normal;
+    font-size: 14px;
+    float: right;
+  }
 
 .container header {
     position: relative;
@@ -57,9 +62,9 @@ body {
 .container .data1 {
     position: relative;
     margin-top: 16px;
-    min-height: 490px;
     background-color: #fff;
-    overflow: hidden;
+    overflow: scroll;
+    height: auto;
     display: block;
 }
 
@@ -68,7 +73,7 @@ body {
     margin-top: 16px;
     min-height: 490px;
     background-color: #fff;
-    overflow: hidden;
+    overflow: scroll;
     display: none;
 }
 
@@ -256,6 +261,12 @@ data .buttons button,
 
     data .fields-3 .input-field {
         width: 80%;
+    }
+}
+@media (max-width: 1050px) {
+    .container .data2,
+    .container .data1{
+        height: 560px;
     }
 }
 
