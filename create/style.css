@@ -263,12 +263,7 @@ data .buttons button,
         width: 80%;
     }
 }
-@media (max-width: 1050px) {
-    .container .data2,
-    .container .data1{
-        height: 560px;
-    }
-}
+
 
 @media (max-width: 1020px) {
     .c2 {
