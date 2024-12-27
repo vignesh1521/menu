@@ -65,7 +65,7 @@ subBtn.addEventListener("click", (event) => {
             return;
         }
         else if (input.tagName === "TEXTAREA") {
-            if (input.value.length < 100 || input.value.length < 100 > 250) {
+            if (input.value.length < 100 || input.value.length > 250) {
                 input.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 input.focus();
                 input.classList.add('err')
@@ -151,7 +151,7 @@ allInputs2.forEach(input => {
         if (input.value.trim() !== "" || (input.tagName === "SELECT" && input.value !== "") || (input.tagName === "TEXTAREA" && input.value !== "")) {
             // For number input, ensure the length is exactly 10
             if (input.tagName === 'TEXTAREA') {
-                if (input.value.length < 100 || input.value.length < 100 > 250) {
+                if (input.value.length < 100 || input.value.length > 250) {
                     input.classList.add('err');
                 } else {
                     input.classList.remove('err');

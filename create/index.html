@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css?v=1.0">
-    <title>Responsive Regisration data </title>
+    <title>Create Resume</title>
     <script src="script.js?v=1.0" defer></script>
 </head>
 
@@ -14,7 +14,7 @@
     <div class="container">
         <header>Resume Creation</header>
         <data action="#" class="data1 active">
-            <div class="data first">
+            <div class="data first ">
                 <div class="details personal">
                     <span class="title">Personal Details</span>
 
@@ -57,7 +57,7 @@
                 </div>
 
                 <div class="details ID">
-                    <label>Select your skills:</label>
+                    <label>Select your skills <span class="ntf">3 skills required</span></label>
                     <div class="con">
 
                         <div class="checkBox">
@@ -170,9 +170,9 @@
                         </div>
 
                         <div class="input-field">
-                            <label for="state">State/UT:</label>
+                            <label for="state">State</label>
                             <select id="state" onchange="updateDistricts()">
-                                <option value="" disabled selected>Select a state/UT</option>
+                                <option value="" disabled selected>Select a state</option>
                                 <option value="andhra_pradesh">Andhra Pradesh</option>
                                 <option value="arunachal_pradesh">Arunachal Pradesh</option>
                                 <option value="assam">Assam</option>
@@ -213,7 +213,7 @@
                         </div>
 
                         <div class="input-field">
-                            <label for="district">District:</label>
+                            <label for="district">District</label>
                             <select id="district">
                                 <option value="" disabled selected>Select a district</option>
                             </select>
@@ -223,9 +223,9 @@
 
                 <div class="details family">
                     <span class="title">Profile Details</span>
-                    <label for=""> About your-slef</label>
+                    <label for="">About your-slef <span class="ntf">minimum 100 words</span></label>
                     <div class="con">
-                        <textarea class="checkBox c2" name="" id=""></textarea>
+                        <textarea class="checkBox c2" name="" id="" placeholder="About your self within 500 words minimum 100 words"></textarea>
                         <div class="checkBox fields fields-3">
 
                             <div class="input-field" for="file-upload">
