@@ -14,10 +14,9 @@
 </head>
 
 <body>
-    <div id='display-container' class="sec_con"
-        style="position: absolute; transform: translateX(-100%); overflow: hidden; width: 0%; height: 0%;">
-
+    <div id='display-container' class="sec_con" style="position: absolute; transform: translateX(-100%); overflow: hidden; width: 0%; height: 0%;">
     </div>
+
     <style>
         body {
             font-family: 'Open Sans', sans-serif;
@@ -50,6 +49,9 @@
             width: 90%;
             margin: auto;
 
+        } 
+        p{
+            word-break:break-word;
         }
 
         .con {
@@ -237,10 +239,8 @@
         }
     </style>
 
-
-
     <div style="width: 100%;display: flex;">
-        <img id="view" src="" alt="" style="max-width:350px; margin:auto; object-fit: cover">
+        <img id="view" src="" alt="" style="max-width:350px; margin:auto; object-fit: cover; display: block;">
     </div>
     <div style="text-align: center; margin-top: 20px;">
         <button id="download-pdf" onclick="generatePDF();">Download PDF</button>
