@@ -64,14 +64,14 @@ body {
     margin-top: 16px;
     background-color: #fff;
     overflow: scroll;
-    height: auto;
+    height: 610px;
     display: block;
 }
 
 .container .data2 {
     position: relative;
     margin-top: 16px;
-    min-height: 490px;
+    height: auto;
     background-color: #fff;
     overflow: scroll;
     display: none;
@@ -212,7 +212,7 @@ data .buttons button,
 .checkBox {
     border: 1px solid #aaa;
     border-radius: 5px;
-    width: 450px;
+    width: 400px;
     height: 200px;
     overflow: scroll;
     padding: 5px;
@@ -228,7 +228,17 @@ data .buttons button,
     align-items: normal !important;
     height: auto !important;
 }
-
+.container .data2::-webkit-scrollbar,
+.container .data1::-webkit-scrollbar {
+    display: none;
+}
+.container .data2,
+.container .data1 {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
 
 .con {
     display: flex;
@@ -263,7 +273,6 @@ data .buttons button,
         width: 80%;
     }
 }
-
 
 @media (max-width: 1020px) {
     .c2 {
@@ -303,31 +312,10 @@ data .buttons button,
         margin-top: 10px;
         width: 100%;
     }
-
-    .container .data1 {
-        overflow: scroll;
-    }
-
-    .container .data2 {
-        overflow: scroll;
-    }
-
-    .container .data1::-webkit-scrollbar {
-        display: none;
-    }
-
-    .container .data1 {
-        -ms-overflow-style: none;
-        /* IE and Edge */
-        scrollbar-width: none;
-        /* Firefox */
-    }
 }
 
 @media (max-width: 750px) {
-    .container data {
-        overflow-y: scroll;
-    }
+
 
     .container data::-webkit-scrollbar {
         display: none;
@@ -352,4 +340,9 @@ data .buttons button,
     .checkBox.fields.fields-2 .input-field {
         margin: -10px;
     }
+
+    .container .data2{
+        height: 600px;
+    }
 }
+

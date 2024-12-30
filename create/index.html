@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css?v=1.3">
+    <link rel="stylesheet" href="style.css?v=1.0">
     <title>Create Resume</title>
     <script src="script.js?v=1.0" defer></script>
 </head>
@@ -21,31 +21,31 @@
                     <div class="fields">
                         <div class="input-field ">
                             <label>First Name</label>
-                            <input type="text" placeholder="Enter your first name" required>
+                            <input type="text" name="first name" placeholder="Enter your first name" required>
                         </div>
 
                         <div class="input-field">
                             <label>Last Name</label>
-                            <input type="text" placeholder="Enter your last name" required>
+                            <input type="text" name="last name" placeholder="Enter your last name" required>
                         </div>
                         <div class="input-field">
                             <label>Email</label>
-                            <input type="email" placeholder="Enter your email" required>
+                            <input type="email" name="email" placeholder="Enter your email" required>
                         </div>
 
                         <div class="input-field">
                             <label>Mobile Number</label>
-                            <input type="number" placeholder="Enter mobile number" required>
+                            <input type="number" name="number" placeholder="Enter mobile number" required>
                         </div>
 
                         <div class="input-field">
                             <label>Date of birth</label>
-                            <input type="text" placeholder="Enter your Date of birth" required>
+                            <input type="date" name="dob" placeholder="Enter your Date of birth" required>
                         </div>
 
                         <div class="input-field">
                             <label>Gender</label>
-                            <select required>
+                            <select name="gender" required>
                                 <option value="" disabled selected>Select gender</option>
                                 <option value="Male">Male</option>
                                 <option value="Female">Female</option>
@@ -101,7 +101,7 @@
                         <div class="checkBox fields fields-2">
                             <div class="input-field">
                                 <label>Experinece</label>
-                                <select required>
+                                <select name="experience" required>
                                     <option value="" disabled selected>Select your previous work experience</option>
                                     <option value="Fresher">Fresher</option>
                                     <option value="1-year">1 Year</option>
@@ -115,7 +115,7 @@
 
                             <div class="input-field">
                                 <label for="work-role">Previous Work Role</label>
-                                <select id="work-role" name="work-role" required>
+                                <select name="prev-role" id="work-role" name="work-role" required>
                                     <option value="" disabled selected>Select previous work role</option>
                                     <option value="fresher">Fresher</option>
                                     <option value="junior-developer">Junior Developer</option>
@@ -134,18 +134,68 @@
                                 <label for="degree">Select your degree:</label>
                                 <select id="degree" name="degree" onchange="updateSubBranches()" required>
                                     <option value="" disabled selected>Select a degree</option>
-                                    <option value="bsc">Bachelor of Science (BSc)</option>
-                                    <option value="ba">Bachelor of Arts (BA)</option>
-                                    <option value="bcom">Bachelor of Commerce (B.Com)</option>
-                                    <option value="btech">Bachelor of Technology (B.Tech)</option>
+                                    <option value="BSC">Bachelor of Science (BSc)</option>
+                                    <option value="BA">Bachelor of Arts (BA)</option>
+                                    <option value="BCom">Bachelor of Commerce (B.Com)</option>
+                                    <option value="BTech">Bachelor of Technology (B.Tech)</option>
                                 </select>
                             </div>
                             <div class="input-field">
                                 <label for="degree">Select your degree:</label>
-                                <select id="sub-branch" name="sub-branch" required>
-                                    <option value="" selected>Select a sub-branch</option>
+                                <select id="sub-branch" name="course" required>
+                                    <option value="" selected>Select a Course</option>
                                 </select>
                             </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="details personal" style="margin-top: 10px;">
+                    <div class="fields">
+                        <div class="input-field ">
+                            <label>Studied College Name</label>
+                            <input type="text" name="clg-name" placeholder="Enter your College Name" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>College District</label>
+                            <input type="text" name="clg-district" placeholder="Enter your College District" required>
+                        </div>
+                        <div class="input-field">
+                            <label>Your Website URL</label>
+                            <input type="url" name="user-url" placeholder="Enter your email" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Soft Skills</label>
+                            <select name="soft-skill" class="soft-skill" required>
+                                <option value="" disabled selected>Soft Skills(English)</option>
+                                <option value="expert">Expert</option>
+                                <option value="intermediate">Intermediate</option>
+                                <option value="beginner">Beginner</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Expecting Job Role</label>
+                            <select name="expecting-role" required>
+                                <option value="" disabled selected>Select expecting job role</option>
+                                <option value="fresher">Fresher</option>
+                                <option value="junior-developer">Junior Developer</option>
+                                <option value="senior-developer">Senior Developer</option>
+                                <option value="team-lead">Team Lead</option>
+                                <option value="project-manager">Project Manager</option>
+                                <option value="qa-analyst">QA Analyst</option>
+                                <option value="data-analyst">Data Analyst</option>
+                                <option value="ui-ux-designer">UI/UX Designer</option>
+                                <option value="devops-engineer">DevOps Engineer</option>
+                                <option value="cybersecurity-specialist">Cybersecurity Specialist</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Linked-in profile</label>
+                            <input type="url" name="linked-in-profile" placeholder="linked-in profile" required>
                         </div>
                     </div>
                     <button class="nextBtn">
@@ -155,23 +205,24 @@
                 </div>
             </div>
         </data>
-        <data class="data2">
+
+        <data class="data2 ">
             <div class="data second">
                 <div class="details address">
                     <span class="title">Address Details</span>
                     <div class="fields">
                         <div class="input-field">
                             <label>Address Line1</label>
-                            <input type="text" placeholder="Street name, Door No" required>
+                            <input type="text" name="ad-line-1" placeholder="Street name, Door No" required>
                         </div>
                         <div class="input-field">
                             <label>Address Line2</label>
-                            <input type="text" placeholder="Appartment, floor, unit..etc" required>
+                            <input type="text" name="ad-line-2" placeholder="Appartment, floor, unit..etc" required>
                         </div>
 
                         <div class="input-field">
                             <label for="state">State</label>
-                            <select id="state" onchange="updateDistricts()">
+                            <select name="state" id="state" onchange="updateDistricts()" style="padding: 0px; padding-left: 15px;">
                                 <option value="" disabled selected>Select a state</option>
                                 <option value="andhra_pradesh">Andhra Pradesh</option>
                                 <option value="arunachal_pradesh">Arunachal Pradesh</option>
@@ -214,7 +265,7 @@
 
                         <div class="input-field">
                             <label for="district">District</label>
-                            <select id="district">
+                            <select name="district" id="district">
                                 <option value="" disabled selected>Select a district</option>
                             </select>
                         </div>
@@ -223,14 +274,14 @@
 
                 <div class="details family">
                     <span class="title">Profile Details</span>
-                    <label for="">About your-slef <span class="ntf">minimum 100 words</span></label>
+                    <label for="">About your-slef <span class="ntf">minimum 180 words</span></label>
                     <div class="con">
-                        <textarea class="checkBox c2" name="" id="" placeholder="About your self within 500 words minimum 100 words"></textarea>
+                        <textarea class="checkBox c2" name="about" id="" placeholder="About your self within 300 words minimum 180 words"></textarea>
                         <div class="checkBox fields fields-3">
 
                             <div class="input-field" for="file-upload">
                                 <label style="position: relative; top: -3px;">profile Photo</label>
-                                <input type="file" id="file-upload" required style="align-content: center;"
+                                <input type="file" id="file-upload" name="profile" required style="align-content: center;"
                                     accept="image/png ,image/jpeg">
                             </div>
                         </div>

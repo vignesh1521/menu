@@ -6,14 +6,14 @@ function updateSubBranches() {
 
     // Sub-branches for each degree
     const subBranches = {
-        bsc: ["Physics", "Chemistry", "Mathematics", "Biology", "Computer Science", "Environmental Science"],
-        ba: ["English", "History", "Political Science", "Economics", "Sociology", "Philosophy"],
-        bcom: ["Accounting", "Finance", "Marketing", "Taxation", "Economics"],
-        btech: ["Computer Science", "Indataation Technology", "Electronics", "Mechanical", "Civil", "Electrical"],
-        msc: ["Physics", "Mathematics", "Chemistry", "Biotechnology", "Data Science", "Computer Science"],
-        ma: ["English", "History", "Political Science", "Psychology", "Economics", "Linguistics"],
-        mcom: ["Accounting", "Finance", "Management", "Marketing", "Taxation"],
-        mtech: ["Artificial Intelligence", "Machine Learning", "Big Data", "IoT", "Cybersecurity"]
+        BSC: ["Physics", "Chemistry", "Mathematics", "Biology", "Computer Science", "Environmental Science"],
+        BA: ["English", "History", "Political Science", "Economics", "Sociology", "Philosophy"],
+        BCom: ["Accounting", "Finance", "Marketing", "Taxation", "Economics"],
+        BTech: ["Computer Science", "Indataation Technology", "Electronics", "Mechanical", "Civil", "Electrical"],
+        MSC: ["Physics", "Mathematics", "Chemistry", "Biotechnology", "Data Science", "Computer Science"],
+        MA: ["English", "History", "Political Science", "Psychology", "Economics", "Linguistics"],
+        MCom: ["Accounting", "Finance", "Management", "Marketing", "Taxation"],
+        MTech: ["Artificial Intelligence", "Machine Learning", "Big Data", "IoT", "Cybersecurity"]
     };
 
     // Clear existing options
@@ -44,6 +44,8 @@ window.onload = function () {
     // Reset all select dropdowns to the first option
     const selects = document.querySelectorAll('select');
     selects.forEach(select => select.selectedIndex = 0);
+
+    document.getElementById('file-upload').value=''
 };
 
 const data = document.querySelectorAll("data"),
@@ -52,6 +54,7 @@ const data = document.querySelectorAll("data"),
     backBtn = data[1].querySelector(".backBtn"),
     allInputs = data[0].querySelectorAll(".first input, .first select"), // Target all inputs and selects in `.first`
     allInputs2 = data[1].querySelectorAll(".second input , .second select , .second textarea")
+    let check_box;
 
 subBtn.addEventListener("click", (event) => {
     let checks = 0;
@@ -65,7 +68,7 @@ subBtn.addEventListener("click", (event) => {
             return;
         }
         else if (input.tagName === "TEXTAREA") {
-            if (input.value.length < 100 || input.value.length > 250) {
+            if (input.value.length < 180 || input.value.length > 300) {
                 input.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 input.focus();
                 input.classList.add('err')
@@ -84,7 +87,7 @@ subBtn.addEventListener("click", (event) => {
 
 
     if (open) {
-        alert(1)
+        submit()
     }
 });
 
@@ -94,8 +97,7 @@ nextBtn.addEventListener("click", (event) => {
     let open = true;
     const checkboxes = data[0].querySelectorAll('input[type="checkbox"]');
     const checkedCount = Array.from(checkboxes).filter(checkbox => checkbox.checked).length;
-
-
+    check_box =  check_box = Array.from(checkboxes).filter(checkbox => checkbox.checked).map(checkbox => checkbox.value);
     allInputs.forEach(input => {
         if (input.getAttribute('type') === 'email' && open == true) {
             if (!emailRegex.test(input.value)) {
@@ -143,7 +145,6 @@ nextBtn.addEventListener("click", (event) => {
         data[1].classList.add('active')
     }
 });
-console.log(allInputs2);
 
 allInputs2.forEach(input => {
     input.addEventListener('input', () => {
@@ -151,7 +152,7 @@ allInputs2.forEach(input => {
         if (input.value.trim() !== "" || (input.tagName === "SELECT" && input.value !== "") || (input.tagName === "TEXTAREA" && input.value !== "")) {
             // For number input, ensure the length is exactly 10
             if (input.tagName === 'TEXTAREA') {
-                if (input.value.length < 100 || input.value.length > 250) {
+                if (input.value.length < 180 || input.value.length > 300) {
                     input.classList.add('err');
                 } else {
                     input.classList.remove('err');
@@ -281,4 +282,51 @@ function updateDistricts() {
             districtSelect.appendChild(option);
         });
     }
+}
+let base64URL= null;
+    document.getElementById('file-upload').addEventListener('change', function(event) {
+    const file = event.target.files[0]; // Get the uploaded file
+
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+             base64URL = e.target.result; // Base64 URL of the image
+
+        };
+
+        reader.onerror = function(e) {
+            console.error("Error reading file", e);
+        };
+
+        reader.readAsDataURL(file); // Read file as Data URL (Base64)
+    } else {
+        console.warn("No file selected");
+    }
+});
+
+
+function submit() {
+    const All_inputs = document.querySelectorAll('.container input, .container select, .container textarea');
+    const data = {};
+    All_inputs.forEach(input => {
+        if (input.type === 'checkbox') {
+            data[input.name] = check_box;
+        }
+        else if(input.type ==="file"){
+            data[input.name] =base64URL;
+        }
+        else {
+            data[input.name] =cap(input.value);
+        }
+    });
+    localStorage.setItem('data',JSON.stringify(data))
+    window.location='/menu/template' 
+    return;
+}
+
+
+function cap(input) {
+    return input.split('_')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+        .join(' ');
 }
