@@ -215,6 +215,7 @@ data .buttons button,
     width: 400px;
     height: 200px;
     overflow: scroll;
+    overflow-x: hidden;
     padding: 5px;
     margin-top: 8px;
 }

@@ -17,7 +17,7 @@ function updateSubBranches() {
     };
 
     // Clear existing options
-    subBranchSelect.innerHTML = '<option value="" disabled selected>Select a sub-branch</option>';
+    //subBranchSelect.innerHTML = '<option value="" disabled selected>Select a sub-branch</option>';
 
     // Populate sub-branch options
     if (selectedDegree in subBranches) {
@@ -32,21 +32,21 @@ function updateSubBranches() {
 
     }
 }
-const subBranchSelect = document.getElementById('sub-branch');
-subBranchSelect.innerHTML = '<option value="" disabled selected>Select a sub-branch</option>';
+//const subBranchSelect = document.getElementById('sub-branch');
+//subBranchSelect.innerHTML = '<option value="" disabled selected>Select a sub-branch</option>';
 
 
-window.onload = function () {
-    // Clear all checkboxes
-    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-    checkboxes.forEach(checkbox => checkbox.checked = false);
-
-    // Reset all select dropdowns to the first option
-    const selects = document.querySelectorAll('select');
-    selects.forEach(select => select.selectedIndex = 0);
-
-    document.getElementById('file-upload').value=''
-};
+//window.onload = function () {
+//    // Clear all checkboxes
+//    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+//    checkboxes.forEach(checkbox => checkbox.checked = false);
+//
+//    // Reset all select dropdowns to the first option
+//    const selects = document.querySelectorAll('select');
+//    selects.forEach(select => select.selectedIndex = 0);
+//
+//    document.getElementById('file-upload').value=''
+//};
 
 const data = document.querySelectorAll("data"),
     nextBtn = data[0].querySelector(".nextBtn"),
@@ -271,7 +271,7 @@ function updateDistricts() {
 
 
     // Clear the current district options
-    districtSelect.innerHTML = '<option value="" disabled selected>Select a district</option>';
+    //districtSelect.innerHTML = '<option value="" disabled selected>Select a district</option>';
 
     // Populate district options if the selected state exists
     if (selectedState in districtsByState) {
