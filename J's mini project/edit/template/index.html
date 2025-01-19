@@ -4,94 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convert HTML to PDF</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway:100" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <title>Menu</title>
+
 </head>
 
 <body>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: #333;
-            background-image: linear-gradient(to right, #8b4ce9, #c524da);
-        }
 
-        .menu {
-            text-align: center;
-            margin: 20px 0;
-            font-size: 2rem;
-            color: #fff;
-            padding: 15px;
-        }
-
-        #body {
-            position: absolute;
-            transform: translateX(-100%);
-        }
-
-        .container .a {
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            font-size: 14px;
-        }
-
-        .container {
-            position: relative;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            padding: 20px;
-            padding-top: 50px;
-            width: 75%;
-            margin: auto;
-            justify-content: center;
-            padding-bottom: 30px;
-            transition: all 1s ease;
-            background: #fff;
-            border-radius: 12px;
-
-        }
-
-        .card {
-            border-radius: 10px;
-            box-shadow: 5px 5px 5px rgba(0.1, 0.1, 0.1, 0.1);
-            text-align: center;
-            padding: 10px;
-            width: 250px;
-            opacity: 1;
-            transition: all 0.3s ease;
-        }
-
-        .card a {
-            font-size: 12px;
-            padding: 3px;
-            color: blue;
-            text-decoration: underline;
-            cursor: pointer;
-        }
-
-        .card:hover {
-            background: #dfdfdf;
-        }
-
-        .card img {
-            max-width: 230px;
-            max-height: 230px;
-        }
-
-        @media(max-width:800px) {
-            .card {
-                width: 200px;
-            }
-        }
-    </style>
     <div class='containe' id="loading">
         <i class='layers'></i>
         <i class='layers'></i>
@@ -151,7 +74,9 @@
             }
         }
 
-
+        /**
+ * Square layer styles
+ */
         .layers {
             display: block;
             position: absolute;
@@ -187,119 +112,288 @@
             animation: moveup 1.8s cubic-bezier(0.39, 0.575, 0.565, 1) infinite normal;
         }
 
+        /* Stage and link styles */
+
+
         .containe {
             position: absolute;
             top: 40%;
             left: 45%;
-            transform: translate(-50%, -50%);
 
         }
     </style>
 
-    <div id='display-container' class="sec_con"
-        style="position: absolute; transform: translateX(-100%); overflow: hidden; width: 0%; height: 0%;">
-    </div>
-    <div id="body"></div>
-    <div id="fs_div" style="opacity: 0; transition: 0.5s ease;">
-        <div class="menu">Saved Resumes</div>
-        <div class="container" id="main_div">
-            <a class="a" href="/menu">Back Home</a>
-            <h1 id="msg">No Resumes Found</h1>
+
+    <div id="fs_div" style="opacity: 0; transition: all .5s ease;">
+        <div id='display-container' class="sec_con"
+            style="position: absolute; transform: translateX(-100%); overflow: hidden; width: 0%; height: 0%;">
+        </div>
+
+        <div class="resumes" id="resumes">
+        </div>
+
+        <div class="temp" onclick="open_menu()">
+            <div class="temp_selector" id="temp_selector">
+            </div>
+            <div class="layer"></div>
+        </div>
+
+
+        <div id="temp" style="height: 100vh; margin: auto;">
+
+            <div class="save">
+                <div>
+                    <button onclick="save();">Save</button>
+                    <button id="download-pdf" onclick="generatePDF(); save();">Save & Download</button>
+                </div>
+
+            </div>
+            <div class="temp_load"
+                style="width: 100%;display: flex; flex-direction: column; justify-content: center; align-items: center;  margin-top: 100px;">
+                <img id="view" src="" alt="" style="object-fit: cover; display: block;">
+                <div id="btn" style="text-align: center; margin-top: 20px;">
+                </div>
+
+            </div>
         </div>
     </div>
+    <style>
+        body {
+            background: linear-gradient(to right, #8b4ce9, #c524da);
+            overflow: hidden;
+        }
 
+        .temp_selector {
+            gap: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 10px;
+
+        }
+
+        #view {
+            width: 400px;
+        }
+
+        .main_flex {
+            display: flex;
+        }
+
+        .layer {
+            width: 100%;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+        }
+
+        .temp_selector .temp_con {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            transition: all 1.1s ease;
+            border-radius: 100%;
+
+        }
+
+        .temp_selector img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .resumes {
+            position: absolute;
+            transform: translateX(-100%);
+            width: 0%;
+            height: 0%;
+            overflow: hidden;
+        }
+
+
+
+        .temp {
+            background: linear-gradient(to top, #ab72ff, #83358d);
+            height: 100vh;
+            max-width: 200px;
+            position: absolute;
+            top: 0;
+            z-index: 1;
+        }
+
+        .save {
+            --h1VP-w: rgba(13, 18, 22, 0.7);
+            --ILGcOg: rgba(13, 18, 22, 0);
+            --S13zOA: rgba(28, 39, 48, 0.5);
+            background: linear-gradient(to bottom, var(--h1VP-w) 0, var(--ILGcOg) 100%);
+
+            position: absolute;
+            top: 0;
+            display: block;
+            width: 100%;
+
+        }
+
+        .save div {
+            padding: 30px;
+        }
+
+        .save button {
+            float: right;
+            margin-left: 10px;
+            padding: 10px;
+            background-color: rgb(52, 58, 255);
+            border: none;
+            border-radius: 6px;
+            color: white;
+            transition: .5s ease;
+        }
+
+        .save button:hover {
+            background-color: rgb(40, 46, 211);
+        }
+
+        .temp_selector {
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        @media (max-width:700px) {
+
+            #btn,
+            #view {
+                margin-left: 100px;
+            }
+        }
+
+        @media (max-width:570px) {
+
+            #btn,
+            #view {
+                margin-left: 70px;
+            }
+
+            #view {
+                width: 380px;
+            }
+        }
+
+        @media (max-width:500px) {
+
+            #btn,
+            #view {
+                margin-left: 80px;
+            }
+
+            #view {
+                width: 320px;
+            }
+
+            .temp_selector .temp_con {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        @media (max-width:450px) {
+
+            #btn,
+            #view {
+                margin-left: 60px;
+            }
+
+            #view {
+                width: 320px;
+            }
+
+            .temp_selector .temp_con {
+                width: 35px;
+                height: 35px;
+            }
+        }
+
+        @media (max-width:400px) {
+
+            #btn,
+            #view {
+                margin-left: 50px;
+            }
+
+            #view {
+                width: 300px;
+            }
+
+            .temp_selector .temp_con {
+                width: 30px;
+                height: 30px;
+            }
+        }
+
+        @media (max-width:350px) {
+
+            #btn,
+            #view {
+                margin-left: 50px;
+            }
+
+            #view {
+                width: 280px;
+            }
+
+            .temp_selector .temp_con {
+                width: 25px;
+                height: 25px;
+            }
+        }
+    </style>
     <script>
-
-        let server = new URL(localStorage.getItem('server'));
-
+    let server = new URL(localStorage.getItem('server'));
+        window.onload = function () {
+            
+    server.pathname = '/api/user';
+  fetch(server, {
+    headers: {
+      "Content-Type": 'application/json',
+      "Authorization": localStorage.getItem('auth_token') ? `Bearer ${localStorage.getItem('auth_token')}` : ''
+    }
+  }).then((res) => {
+    return res.json()
+  }).then((data) => {
+    if (data.status == "failed") {
+        window.location = `/user/?redirect=${location.pathname}`;
+      return;
+    }
+  })    
+            setTimeout(() => {
+                window.scrollTo(0, 0);
+            }, 10);
+        };
         async function img_data() {
             const content = document.getElementById("content-to-print");
             const canvas = await html2canvas(content);
             const imgData = canvas.toDataURL("image/jpeg");
             return imgData;
         }
-        async function img_load() {
-            let body = document.getElementById('body')
-            let iframeElements = document.querySelectorAll('iframe')
-            for (let iframe of iframeElements) {
-                iframe.onload = async () => {
-                    try {
-                        await new Promise((resolve, reject) => {
-                            if (iframe.contentDocument || iframe.contentWindow.document) {
-                                resolve();
-                            } else {
-                                iframe.onload = resolve;
-                                iframe.onerror = () => reject("Failed to load iframe content");
-                            }
-                        });
-                        const display = document.getElementById("display-container")
-                        const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-                        const contentToPrint = iframeDoc?.querySelector('body');
-
-                        if (contentToPrint) {
-                            msg.style.display = "none"
-                            const con_copy = contentToPrint.cloneNode(true);
-                            display.innerHTML = "";
-                            display.append(con_copy);
-
-                            const imgData = await img_data(contentToPrint);
-
-                            const div = document.createElement("div");
-                            let con = document.createElement('div')
-                            let a1 = document.createElement('a')
-                            a1.innerText = "View"
-                            a1.onclick = () => {
-                                const byteString = atob(imgData.split(',')[1]); // Decode base64
-                                const mimeString = imgData.split(',')[0].split(':')[1].split(';')[0]; // Get MIME type
-
-                                const ab = new ArrayBuffer(byteString.length);
-                                const ia = new Uint8Array(ab);
-
-                                for (let i = 0; i < byteString.length; i++) {
-                                    ia[i] = byteString.charCodeAt(i);
-                                }
-
-                                const blob = new Blob([ab], { type: mimeString });
-                                const blobURL = URL.createObjectURL(blob);
-
-                                window.open(blobURL, '_blank', 'noopener,noreferrer');
-                            };
-
-                            let a2 = document.createElement('a')
-                            a2.innerText = "Download";
-                            a2.onclick = () => generate_pdf(iframe.getAttribute('resume_id'));
-                            let a3 = document.createElement('a')
-                            a3.innerText = "Edit"
-                            a3.onclick = () => edit(iframe.getAttribute('resume_id'));
-                            let a4 = document.createElement('a')
-                            a4.innerText = "Delete";
-                            a4.onclick = () => delete_resume(iframe.getAttribute('resume_id'));
-                            con.append(a1)
-                            con.append(a2)
-                            con.append(a3)
-                            con.append(a4)
-                            div.classList.add("card");
-
-                            const img = document.createElement("img");
-                            img.classList.add("temp_img");
-                            img.setAttribute("id", (iframe.getAttribute('resume_id')))
-                            img.src = imgData;
-                            div.append(img);
-                            div.append(con);
-
-                            main_div.append(div);
-                        }
-                    } catch (error) {
-                        console.error(error);
-                    }
-                };
-            }
-        }
-        async function generate_pdf(id) {
-            const { jsPDF } = window.jspdf;
-            const content = document.getElementById(id);
+        async function img_view() {
+            const content = document.getElementById("content-to-print");
             const canvas = await html2canvas(content);
-            const imgData = document.getElementById(id).src
+            const imgData = canvas.toDataURL("image/jpeg");
+            document.getElementById('view').setAttribute('src', imgData);
+            document.getElementById('view').setAttribute('temp_id', '1521');
+            return imgData;
+        }
+
+
+        async function generatePDF() {
+            const { jsPDF } = window.jspdf;
+            const content = document.getElementById("content-to-print");
+            const canvas = await html2canvas(content);
+            const imgData = document.getElementById("view").src
+
+
             // Get PDF dimensions
             const pdf = new jsPDF();
             const pageWidth = pdf.internal.pageSize.getWidth();
@@ -316,70 +410,10 @@
             pdf.addImage(imgData, "JPEG", 0, 0, scaledWidth, scaledHeight);
             pdf.save("single_page.pdf");
         }
-        function edit(id) {
-            localStorage.setItem('resume_id', id);
-            location = `/edit/create`
-
-        }
-        function delete_resume(id) {
-            let card = document.getElementById(id).parentNode;
-            let all_card = main_div.querySelectorAll(".card")
-            server.pathname = '/api/delete/resume'
-            fetch(server, {
-                method: "DELETE",
-                headers: {
-                    "Content-Type": 'application/json',
-                    "Authorization": localStorage.getItem('auth_token') ? `Bearer ${localStorage.getItem('auth_token')}` : ''
-                },
-                body: JSON.stringify({ resume_id: id })
-            })
-                .then((res) => {
-                    return res.json()
-                })
-                .then(async (user_data) => {
-                    if (user_data.status == "failed" && user_data.msg == "s") {
-                        window.location = `/user/?redirect=${location.pathname}`;
-                        return;
-                    }
-
-                    card.style.opacity = 0
-                    card.style.width = 0
-                    card.style.height = 0
-                    setTimeout(() => {
-                        if (all_card.length == 1) {
-                            msg.style.display = "block"
-                        }
-
-                        card.style.display = "none";
-                        card.remove()
-                    }, 130);
-                })
-        }
-
-
-        window.onload = () => {
-            server.pathname = '/api/user/resumes';
-
-            fetch(server, {
-                headers: {
-                    "Content-Type": 'application/json',
-                    "Authorization": localStorage.getItem('auth_token') ? `Bearer ${localStorage.getItem('auth_token')}` : ''
-                }
-            })
-                .then((res) => {
-                    return res.json()
-                })
-                .then(async (user_data) => {
-                    if (user_data.status == "failed") {
-                        window.location = `/user/?redirect=${location.pathname}`;
-                        return;
-                    }
-
-                    user_data.forEach((userData) => {
-                        let resume_id = (userData.resume_id);
-                        let data = JSON.parse(userData.data)
-                        let id = userData.temp_id
-                        
+        async function data() {
+            const display = document.getElementById("display-container")
+            let resume_con = document.getElementById('resumes')
+            data = JSON.parse(localStorage.getItem('edit_data'))
                         let temp = [
                             {
                                 temp_id: 1521,
@@ -943,31 +977,160 @@
     </style>`
                             }
                         ]
-                        
-                        let template = temp.find(item => item.temp_id == id);
-                        let iframe = document.createElement('iframe')
-                        iframe.setAttribute("resume_id", resume_id)
-                        iframe.srcdoc = template['temp']
-                        body.append(iframe)
-
-                    });
-                    await img_load();
-
-                })
-
+                        temp.forEach(e => {
+                let div = document.createElement('iframe')
+                div.classList.add('res')
+                div.setAttribute('id', e['temp_id'])
+                div.srcdoc = e['temp'];
+                resume_con.append(div);
+            });
+            let iframe = document.getElementById('1521')
+            iframe.onload = async function () {
+                let iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                let con_to_print = iframeDoc.getElementsByTagName('body')[0];
+                let con_copy = con_to_print.cloneNode(true)
+                display.append(con_copy)
+                await img_view();
+                setTimeout(() => {
+                    run_all();
+                }, 1000);
+                await temp_display();
+            };
         }
-        async function loading() {
+        async function temp_display() {
+            let iframecon = document.getElementById('resumes');
+            let resumes = iframecon.querySelectorAll('iframe');
+            let main_div = document.getElementById("temp_selector")
+            for (let e of resumes) {
+                await new Promise((resolve, reject) => {
+                    if (e.contentDocument || e.contentWindow.document) {
+                        resolve();
+                    } else {
+                        e.onload = resolve;
+                        e.onerror = () => reject("Failed to load iframe content");
+                    }
+                });
+                const display = document.getElementById("display-container")
+                let iframeDoc = e.contentDocument || e.contentWindow.document;
+                let contentToPrint = iframeDoc.getElementsByTagName('body')[0];
+                let con_copy = contentToPrint.cloneNode(true)
+                display.innerHTML = ""
+                display.append(con_copy)
+
+                if (contentToPrint) {
+                    let imgData = await img_data();
+
+                    let div = document.createElement("div")
+                    div.classList.add("temp_con")
+                    div.classList.add("temp_menu")
+                    let img = document.createElement("img")
+                    img.setAttribute("id", e.getAttribute('id'))
+                    img.classList.add("temp_img")
+                    img.src = imgData
+                    div.append(img)
+                    main_div.append(div)
+
+                }
+            }
+        }
+        data();
+        document.querySelector('.temp_selector').addEventListener('click', function (event) {
+            let img = document.getElementById('view')
+            if (event.target.tagName === 'IMG') {
+                img.src = event.target.src;
+                img.setAttribute("temp_id", event.target.getAttribute("id"))
+
+            }
+        });
+
+        function open_menu() {
+            let menu = document.querySelectorAll('.temp_menu')
+            let layer = document.querySelector('.layer')
+            layer.style.display = "none"
+            menu.forEach(e => {
+                e.style.width = "150px"
+                e.style.height = "200px"
+                e.style.borderRadius = "0%"
+            });
+        }
+
+        let doc = document.getElementById("temp")
+        doc.addEventListener("click", (event) => {
+            let menu = document.querySelectorAll('.temp_menu')
+            let layer = document.querySelector('.layer')
+            layer.style.display = "block"
+            let screenWidth = window.innerWidth;
+            menu.forEach(e => {
+                if (screenWidth <= 350) {
+                    e.style.width = "25px";
+                    e.style.height = "30px";
+                }
+                else if (screenWidth <= 400) {
+                    e.style.width = "30px";
+                    e.style.height = "30px";
+                }
+                else if (screenWidth <= 450) {
+                    e.style.width = "35px";
+                    e.style.height = "35px";
+                }
+                else if (screenWidth <= 450) {
+                    e.style.width = "40px";
+                    e.style.height = "40px";
+                }
+                else {
+                    e.style.width = "50px";
+                    e.style.height = "50px";
+                }
+                e.style.borderRadius = "100%"
+            });
+        })
+
+
+        async function run_all() {
             let fs_div = document.getElementById("fs_div")
             let loading = document.getElementById('loading')
             loading.style.opacity = "0"
             fs_div.style.opacity = '1'
         }
-        setTimeout(() => {
-            loading();
-        }, 1500);
+
+        function save() {
+            let temp_id = document.getElementById("view").getAttribute("temp_id");
+            server.pathname = '/api/update/resume';
+            let data = JSON.parse(localStorage.getItem('edit_data'));
+            let resume_id=localStorage.getItem('resume_id')
+            let payload = {
+                temp_id: temp_id,
+                data: data,
+                resume_id:resume_id
+            };
+
+            fetch(server, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json',
+                    "Authorization": localStorage.getItem('auth_token') ? `Bearer ${localStorage.getItem('auth_token')}` : ''
+                },
+                body: JSON.stringify(payload)
+            })
+                .then(response => {
+                    return response.json();
+                })
+                .then(data => {
+                    if(data.status =="failed"){
+                        window.location = `/user/?redirect=${location.pathname}`;
+                    }else if(data.status == "success"){
+                        window.location = `/resumes`;
+
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+
+
+
     </script>
 </body>
-
-
 
 </html>

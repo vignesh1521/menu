@@ -243,7 +243,7 @@
       <p>Recover what’s gone,
         and restore when needed.</p>
     </div>
-    <div onclick="location='/home'" class="card">
+    <div onclick="logout()" class="card">
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSX45r0OHBiwoMh4pd4FjjlKKqMuYyw1bzDUQ&s" alt="Cookies">
       <h3>Logout</h3>
       <p>Securely log out of your session,
@@ -253,7 +253,7 @@
 </body>
 <script>
 
-let server = new URL("http://192.168.1.37:8080");
+let server = new URL(localStorage.getItem('server'));
 
   window.onload=()=>{
     server.pathname = '/api/user';
@@ -270,6 +270,11 @@ let server = new URL("http://192.168.1.37:8080");
       return;
     }
   })
+  }
+
+  function logout(){
+    localStorage.removeItem('auth_token');
+    location='/user'
   }
 </script>
 </html>

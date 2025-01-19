@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css?v=1.0">
+    <title>Create Resume</title>
+    <script src="script.js?v=1.0" defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <header>Edit Resume<a class="home" href="/resumes">Back Resumes</a></header>
+        <data action="#" class="data1 active">
+            <div class="data first ">
+                <div class="details personal">
+                    <span class="title">Personal Details</span>
+
+                    <div class="fields">
+                        <div class="input-field ">
+                            <label>First Name</label>
+                            <input type="text" name="first name" placeholder="Enter your first name" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Last Name</label>
+                            <input type="text" name="last name" placeholder="Enter your last name" required>
+                        </div>
+                        <div class="input-field">
+                            <label>Email</label>
+                            <input type="email" name="email" placeholder="Enter your email" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Mobile Number</label>
+                            <input type="number" name="number" placeholder="Enter mobile number"  required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Date of birth</label>
+                            <input type="date" name="dob" placeholder="Enter your Date of birth" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Gender</label>
+                            <select name="gender" id="gender" required>
+                                <option value="" selected disabled >Select gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Others">Others</option>
+                            </select>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="details ID">
+                    <label>Select your skills <span class="ntf">3 skills required</span></label>
+                    <div class="con">
+
+                        <div class="checkBox">
+                            <div style="display: grid; grid-template-columns: repeat(2, auto); gap: 10px;">
+                                <label style="display: none;"><input type="checkbox"name="skills" value=""></label>
+                                <label><input type="checkbox" name="skills" value="JavaScript"> JavaScript</label>
+                                <label><input type="checkbox" name="skills" value="Python"> Python</label>
+                                <label><input type="checkbox" name="skills" value="Java"> Java</label>
+                                <label><input type="checkbox" name="skills" value="C++"> C++</label>
+                                <label><input type="checkbox" name="skills" value="PHP"> PHP</label>
+                                <label><input type="checkbox" name="skills" value="Ruby"> Ruby</label>
+                                <label><input type="checkbox" name="skills" value="C#"> C#</label>
+                                <label><input type="checkbox" name="skills" value="Go"> Go</label>
+                                <label><input type="checkbox" name="skills" value="Kotlin"> Kotlin</label>
+                                <label><input type="checkbox" name="skills" value="Swift"> Swift</label>
+                                <label><input type="checkbox" name="skills" value="HTML"> HTML</label>
+                                <label><input type="checkbox" name="skills" value="CSS"> CSS</label>
+                                <label><input type="checkbox" name="skills" value="React"> React</label>
+                                <label><input type="checkbox" name="skills" value="Angular"> Angular</label>
+                                <label><input type="checkbox" name="skills" value="Vue"> Vue</label>
+                                <label><input type="checkbox" name="skills" value="Node.js"> Node.js</label>
+                                <label><input type="checkbox" name="skills" value="Flutter"> Flutter</label>
+                                <label><input type="checkbox" name="skills" value="Django"> Django</label>
+                                <label><input type="checkbox" name="skills" value="Flask"> Flask</label>
+                                <label><input type="checkbox" name="skills" value="Spring Boot"> Spring Boot</label>
+                                <label><input type="checkbox" name="skills" value=".NET"> .NET</label>
+                                <label><input type="checkbox" name="skills" value="SQL"> SQL</label>
+                                <label><input type="checkbox" name="skills" value="NoSQL"> NoSQL</label>
+                                <label><input type="checkbox" name="skills" value="Docker"> Docker</label>
+                                <label><input type="checkbox" name="skills" value="Kubernetes"> Kubernetes</label>
+                                <label><input type="checkbox" name="skills" value="Git"> Git</label>
+                                <label><input type="checkbox" name="skills" value="AWS"> AWS</label>
+                                <label><input type="checkbox" name="skills" value="Azure"> Azure</label>
+                                <label><input type="checkbox" name="skills" value="Google Cloud"> Google Cloud</label>
+                                <label><input type="checkbox" name="skills" value="Blockchain"> Blockchain</label>
+                                <label><input type="checkbox" name="skills" value="Artificial Intelligence"> AI</label>
+                                <label><input type="checkbox" name="skills" value="Machine Learning"> ML</label>
+                                <label><input type="checkbox" name="skills" value="DevOps"> DevOps</label>
+                                <label><input type="checkbox" name="skills" value="Cybersecurity"> Cybersecurity</label>
+                            </div>
+                        </div>
+                        <div class="checkBox fields fields-2">
+                            <div class="input-field">
+                                <label>Experinece</label>
+                                <select name="experience" required>
+                                    <option selected value="" disabled >Select your previous work experience</option>
+                                    <option value="Fresher">Fresher</option>
+                                    <option value="1-year">1 Year</option>
+                                    <option value="2-years">2 Years</option>
+                                    <option value="3-years">3 Years</option>
+                                    <option value="4-years">4 Years</option>
+                                    <option value="more-than-4-years">More Than 4 Years</option>
+                                </select>
+
+                            </div>
+
+                            <div class="input-field">
+                                <label for="work-role">Previous Work Role</label>
+                                <select name="prev-role" id="work-role" name="work-role" required>
+                                    <option selected value="" disabled >Select previous work role</option>
+                                    <option value="Fresher">Fresher</option>
+                                    <option value="Junior-developer">Junior Developer</option>
+                                    <option value="Senior-developer">Senior Developer</option>
+                                    <option value="Team-lead">Team Lead</option>
+                                    <option value="Project-manager">Project Manager</option>
+                                    <option value="Qa-analyst">QA Analyst</option>
+                                    <option value="Data-analyst">Data Analyst</option>
+                                    <option value="Ui-ux-designer">UI/UX Designer</option>
+                                    <option value="Devops-engineer">DevOps Engineer</option>
+                                    <option value="Cybersecurity-specialist">Cybersecurity Specialist</option>
+                                </select>
+                            </div>
+
+                            <div class="input-field">
+                                <label for="degree">Select your degree:</label>
+                                <select id="degree" name="degree" onchange="updateSubBranches()" required>
+                                    <option value="" disabled selected >Select a degree</option>
+                                    <option value="Bsc">Bachelor of Science (BSc)</option>
+                                    <option value="Ba">Bachelor of Arts (BA)</option>
+                                    <option value="Bcom">Bachelor of Commerce (B.Com)</option>
+                                    <option value="Btech">Bachelor of Technology (B.Tech)</option>
+                                </select>
+                            </div>
+                            <div class="input-field">
+                                <label for="degree">Select your degree:</label>
+                                <select id="sub-branch" name="course" required>
+                                    <option selected>Select a Course</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="details personal" style="margin-top: 10px;">
+                    <div class="fields">
+                        <div class="input-field ">
+                            <label>Studied College Name</label>
+                            <input type="text" name="clg-name" placeholder="Enter your College Name" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>College District</label>
+                            <input type="text" name="clg-district" placeholder="Enter your College District" required>
+                        </div>
+                        <div class="input-field">
+                            <label>Your Website URL</label>
+                            <input type="url" name="user-url" placeholder="Enter your email" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Soft Skills</label>
+                            <select name="soft-skill" class="soft-skill" required>
+                                <option value="" selected disabled>Soft Skills(English)</option>
+                                <option  value="Expert">Expert</option>
+                                <option value="Intermediate">Intermediate</option>
+                                <option value="Beginner">Beginner</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Expecting Job Role</label>
+                            <select name="expecting-role" required>
+                                <option value="" selected disabled >Select expecting job role</option>
+                                <option value="Fresher">Fresher</option>
+                                <option  value="Junior-developer">Junior Developer</option>
+                                <option value="Senior-developer">Senior Developer</option>
+                                <option value="Team-lead">Team Lead</option>
+                                <option value="Project-manager">Project Manager</option>
+                                <option value="Qa-analyst">QA Analyst</option>
+                                <option value="Data-analyst">Data Analyst</option>
+                                <option value="Ui-ux-designer">UI/UX Designer</option>
+                                <option value="Devops-engineer">DevOps Engineer</option>
+                                <option value="Cybersecurity-specialist">Cybersecurity Specialist</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Linked-in profile</label>
+                            <input type="url" name="linked-in-profile" placeholder="linked-in profile" required>
+                        </div>
+                    </div>
+                    <button class="nextBtn">
+                        <span class="btnText">Next</span>
+                        <i class="uil uil-navigator"></i>
+                    </button>
+                </div>
+            </div>
+        </data>
+
+        <data class="data2 ">
+            <div class="data second">
+                <div class="details address">
+                    <span class="title">Address Details</span>
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Address Line1</label>
+                            <input type="text" name="ad-line-1" placeholder="Street name, Door No" required>
+                        </div>
+                        <div class="input-field">
+                            <label>Address Line2</label>
+                            <input type="text" name="ad-line-2" placeholder="Appartment, floor, unit..etc" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label for="state">State</label>
+                            <select name="state" id="state" onchange="updateDistricts()" style="padding: 0px; padding-left: 15px;">
+                                <option value="" selected disabled >Select a state</option>
+                                <option value="Andhra_Pradesh">Andhra Pradesh</option>
+                                <option value="Arunachal_Pradesh">Arunachal Pradesh</option>
+                                <option value="Assam">Assam</option>
+                                <option value="Bihar">Bihar</option>
+                                <option value="Chhattisgarh">Chhattisgarh</option>
+                                <option value="Goa">Goa</option>
+                                <option value="Gujarat">Gujarat</option>
+                                <option value="Haryana">Haryana</option>
+                                <option value="Himachal_Pradesh">Himachal Pradesh</option>
+                                <option value="Jharkhand">Jharkhand</option>
+                                <option value="Karnataka">Karnataka</option>
+                                <option value="Kerala">Kerala</option>
+                                <option value="Madhya_Pradesh">Madhya Pradesh</option>
+                                <option value="Maharashtra">Maharashtra</option>
+                                <option value="Manipur">Manipur</option>
+                                <option value="Meghalaya">Meghalaya</option>
+                                <option value="Mizoram">Mizoram</option>
+                                <option value="Nagaland">Nagaland</option>
+                                <option value="Odisha">Odisha</option>
+                                <option value="Punjab">Punjab</option>
+                                <option value="Rajasthan">Rajasthan</option>
+                                <option value="Sikkim">Sikkim</option>
+                                <option value="Tamil_Nadu">Tamil Nadu</option>
+                                <option value="Telangana">Telangana</option>
+                                <option value="Tripura">Tripura</option>
+                                <option value="Uttar_Pradesh">Uttar Pradesh</option>
+                                <option value="Uttarakhand">Uttarakhand</option>
+                                <option value="West_Bengal">West Bengal</option>                          
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label for="district">District</label>
+                            <select name="district" id="district">
+                                <option value="" disabled selected>Select a district</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="details family">
+                    <span class="title">Profile Details</span>
+                    <label for="">About your-slef <span class="ntf">minimum 180 words</span></label>
+                    <div class="con">
+                        <textarea class="checkBox c2" name="about" id="" placeholder="About your self within 300 words minimum 180 words"></textarea>
+                        <div class="checkBox fields fields-3">
+
+                            <div class="input-field" for="file-upload">
+                                <label style="position: relative; top: -3px;">profile Photo</label>
+                                <input type="file" id="file-upload" name="profile" required style="align-content: center;"
+                                    accept="image/png ,image/jpeg">
+                                    <div class="pf_img" id="Pff_img" style="display: none;">
+                                    <img id="pf_img" src="" alt="">
+                                </div>
+                                </div>  
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="buttons">
+                    <div class="backBtn">
+                        <i class="uil uil-navigator"></i>
+                        <span class="btnText">Back</span>
+                    </div>
+
+                    <button type="submit" class="submit">
+                        <span class="btnText">Submit</span>
+                        <i class="uil uil-navigator"></i>
+                    </button>
+                </div>
+            </div>
+    </div>
+    </data>
+    </div>
+</body>
+
+</html>

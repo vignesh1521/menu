@@ -1,3 +1,4 @@
+let server = new URL(localStorage.getItem('server'));
 function updateSubBranches() {
     // Get the selected degree
     const degreeSelect = document.getElementById('degree');
@@ -47,7 +48,6 @@ window.onload = function () {
 
     //document.getElementById('file-upload').value=''
 
-        let server = new URL("http://192.168.1.37:8080");
         server.pathname = '/api/user';
       fetch(server, {
         headers: {

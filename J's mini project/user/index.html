@@ -59,10 +59,10 @@
     <script src="script/main.js.download"></script>
     <span id="PING_IFRAME_FORM_DETECTION" style="display: none;"></span>
     <script>
-        let server = new URL("http://192.168.1.37:8080");
+        localStorage.setItem('server',"http://192.168.115.194:8080")
+        let server = new URL(localStorage.getItem('server'));
 
         let form = document.getElementById("login_form")
-
         window.onclick = () => {
             msg.style.display = "none"
         }
@@ -103,7 +103,6 @@
         }
 
         window.onload = () => {
-            let server = new URL("http://192.168.1.37:8080");
             server.pathname = '/api/user';
             fetch(server, {
                 headers: {
